@@ -1,0 +1,40 @@
+package staff_Volunteer;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class VolunteerDAO {
+    public void addVolunteer(String name, String contactNumber, String email, int hoursContributed) {
+        String sql = "INSERT INTO Volunteer (name, contact_number, email, hours_contributed) VALUES (?, ?, ?, ?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setString(2, contactNumber);
+            stmt.setString(3, email);
+            stmt.setInt(4, hoursContributed);
+            stmt.executeUpdate();
+            System.out.println("Volunteer added successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<String> listVolunteers() {
+        List<String> volunteers = new ArrayList<>();
+        String sql = "SELECT * FROM Volunteer";
+        try (Connection conn = DBConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                String volunteer = "ID: " + rs.getInt("volunteer_id") + ", Name: " + rs.getString("name") 
+                        + ", Contact: " + rs.getString("contact_number") + ", Email: " + rs.getString("email") 
+                        + ", Hours Contributed: " + rs.getInt("hours_contributed");
+                volunteers.add(volunteer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return volunteers;
+    }
+}
