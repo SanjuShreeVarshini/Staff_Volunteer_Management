@@ -1,0 +1,40 @@
+package staff_Volunteer;
+
+public class Task {
+	    private int taskId;
+	    private String taskName;
+	    private String description;
+	    private String dueDate;
+	    private String status;
+
+	    public Task(int taskId, String taskName, String description, String dueDate, String status) {
+	        this.taskId = taskId;
+	        this.taskName = taskName;
+	        this.description = description;
+	        this.dueDate = dueDate;
+	        this.status = status;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "Task ID: " + taskId + ", Task Name: " + taskName + ", Description: " + description + ", Due Date: " + dueDate + ", Status: " + status;
+	    }
+
+		public String getTaskName() {
+			return null;
+		}
+
+		public String getDescription() {
+			return null;
+		}
+
+		public String getDueDate() {
+			return null;
+		}
+
+		public String getStatus() {
+			return null;
+		}
+	}
+
+
