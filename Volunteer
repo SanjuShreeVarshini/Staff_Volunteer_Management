@@ -1,0 +1,41 @@
+package staff_Volunteer;
+
+public class Volunteer {
+	    private int volunteerId;
+	    private String name;
+	    private String contactNumber;
+	    private String email;
+	    private int hoursContributed;
+
+	    public Volunteer(int volunteerId, String name, String contactNumber, String email, int hoursContributed) {
+	        this.volunteerId = volunteerId;
+	        this.name = name;
+	        this.contactNumber = contactNumber;
+	        this.email = email;
+	        this.hoursContributed = hoursContributed;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "Volunteer ID: " + volunteerId + ", Name: " + name + ", Contact Number: " + contactNumber + ", Email: " + email + ", Hours Contributed: " + hoursContributed;
+	    }
+
+		public String getName() {
+			return null;
+		}
+
+		public String getContactNumber() {
+			return null;
+		}
+
+		public String getEmail() {
+			return null;
+		}
+
+		public int getHoursContributed() {
+			return 0;
+		}
+	}
+
+
+
