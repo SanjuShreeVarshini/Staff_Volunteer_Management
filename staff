@@ -1,0 +1,44 @@
+package staff_Volunteer;
+
+public class Staff {
+    private int staffId;
+    private String name;
+    private String role;
+    private String contactNumber;
+    private String email;
+    private int hoursWorked;
+
+    public Staff(int staffId, String name, String role, String contactNumber, String email, int hoursWorked) {
+        this.staffId = staffId;
+        this.name = name;
+        this.role = role;
+        this.contactNumber = contactNumber;
+        this.email = email;
+        this.hoursWorked = hoursWorked;
+    }
+
+    
+    public String toString() {
+        return "Staff ID: " + staffId + ", Name: " + name + ", Role: " + role + ", Contact Number: " + contactNumber + ", Email: " + email + ", Hours Worked: " + hoursWorked;
+    }
+
+	public String getName() {
+		return null;
+	}
+
+	public String getRole() {
+		return null;
+	}
+
+	public String getContactNumber() {
+		return null;
+	}
+
+	public String getEmail() {
+		return null;
+	}
+
+	public int getHoursWorked() {
+		return 0;
+	}
+}
