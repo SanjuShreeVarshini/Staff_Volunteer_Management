@@ -1,0 +1,53 @@
+use java_ecea_project;
+CREATE TABLE Staff (
+    staff_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    role VARCHAR(50) NOT NULL, -- e.g., Admin, Support
+    contact_number VARCHAR(15),
+    email VARCHAR(100) UNIQUE,
+    hours_worked INT DEFAULT 0
+);
+CREATE TABLE Volunteer (
+    volunteer_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    contact_number VARCHAR(15),
+    email VARCHAR(100) UNIQUE,
+    hours_contributed INT DEFAULT 0
+);
+CREATE TABLE Task (
+    task_id INT AUTO_INCREMENT PRIMARY KEY,
+    task_name VARCHAR(100) NOT NULL,
+    description TEXT,
+    due_date DATE,
+    status ENUM('Pending', 'In Progress', 'Completed') DEFAULT 'Pending'
+);
+
+CREATE TABLE Schedule (
+    schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+    staff_id INT,
+    volunteer_id INT,
+    task_id INT,
+    assignment_date DATE,
+    completion_date DATE,
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id),
+    FOREIGN KEY (volunteer_id) REFERENCES Volunteer(volunteer_id),
+    FOREIGN KEY (task_id) REFERENCES Task(task_id)
+);
+CREATE TABLE Assignment(
+    assignment_id INT AUTO_INCREMENT PRIMARY KEY,
+    staff_id INT,
+    volunteer_id INT,
+    task_id INT,
+    assigned_date DATE,
+    status ENUM('Assigned', 'In Progress', 'Completed') DEFAULT 'Assigned',
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id),
+    FOREIGN KEY (volunteer_id) REFERENCES Volunteer(volunteer_id),
+    FOREIGN KEY (task_id) REFERENCES Task(task_id)
+);
+insert into staff(staff_id,name,role,contact_number,email,hours_worked)values(1,"raj","placement co-ordinator",99999999999,"raj@gmail.com",3);
+select*from staff;
+insert into volunteer(volunteer_id,name,contact_number,email,hours_contributed)values(1,"harini",77777,"harini@gmail.com",4);
+select*from volunteer;
+select*from task;
+select*from schedule;
+select*from Assignment;
